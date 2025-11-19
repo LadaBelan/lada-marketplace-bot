@@ -113,12 +113,15 @@ async def main():
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CallbackQueryHandler(handle_button))
 
+   if __name__ == "__main__":
+    if not BOT_TOKEN:
+        raise RuntimeError("Не задан BOT_TOKEN в переменных окружения")
+
+    application = ApplicationBuilder().token(BOT_TOKEN).build()
+
+    application.add_handler(CommandHandler("start", start))
+    application.add_handler(CallbackQueryHandler(handle_button))
+
     logger.info("Bot started")
 
-    await application.run_polling()
-
-
-if __name__ == "__main__":
-    import asyncio
-
-    asyncio.run(main())
+    application.run_polling()

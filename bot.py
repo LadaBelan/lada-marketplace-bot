@@ -104,16 +104,7 @@ async def handle_button(update: Update, context: ContextTypes.DEFAULT_TYPE):
     await query.message.edit_text(text, reply_markup=get_main_keyboard())
 
 
-async def main():
-    if not BOT_TOKEN:
-        raise RuntimeError("Не задан BOT_TOKEN в переменных окружения")
-
-    application = ApplicationBuilder().token(BOT_TOKEN).build()
-
-    application.add_handler(CommandHandler("start", start))
-    application.add_handler(CallbackQueryHandler(handle_button))
-
-   if __name__ == "__main__":
+if __name__ == "__main__":
     if not BOT_TOKEN:
         raise RuntimeError("Не задан BOT_TOKEN в переменных окружения")
 
@@ -125,3 +116,4 @@ async def main():
     logger.info("Bot started")
 
     application.run_polling()
+

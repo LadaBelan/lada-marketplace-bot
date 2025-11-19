@@ -13,8 +13,10 @@ from telegram.ext import (
     ContextTypes,
 )
 
+# Берём токен из переменной окружения BOT_TOKEN
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 
+# Настройка логирования
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     level=logging.INFO,

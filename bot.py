@@ -1,4 +1,3 @@
-
 import os
 import logging
 from telegram import (
@@ -13,15 +12,13 @@ from telegram.ext import (
     ContextTypes,
 )
 
-# Берём токен из переменной окружения BOT_TOKEN
 BOT_TOKEN = os.getenv("BOT_TOKEN")
 
-# Настройка логирования
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     level=logging.INFO,
 )
-logger = loggin..getLogge(__name__)
+logger = logging.getLogger(__name__)
 
 
 def get_main_keyboard() -> InlineKeyboardMarkup:
@@ -123,4 +120,5 @@ async def main():
 
 if __name__ == "__main__":
     import asyncio
+
     asyncio.run(main())

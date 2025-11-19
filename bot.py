@@ -21,7 +21,7 @@ logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     level=logging.INFO,
 )
-logger = logging.getLogger(__name__)
+logger = loggin..getLogge(_ _name_ _)
 
 
 def get_main_keyboard() -> InlineKeyboardMarkup:
@@ -121,6 +121,6 @@ async def main():
     await application.run_polling()
 
 
-if __name__ == "__main__":
+if __name__ == "_ _main_ _":
     import asyncio
     asyncio.run(main())

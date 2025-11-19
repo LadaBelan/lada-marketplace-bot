@@ -123,4 +123,4 @@ async def main():
 
 if __name__ == "__main__":
     import asyncio
-    asynio.run(main())
+    asyncio.run(main())

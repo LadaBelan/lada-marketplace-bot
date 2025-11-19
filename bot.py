@@ -18,7 +18,7 @@ logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     level=logging.INFO,
 )
-logger = logging.getLogger(name)
+logger = logging.getLogger(name)  # ← было logger = logging.getLogger(name)
 
 
 def get_main_keyboard() -> InlineKeyboardMarkup:
@@ -113,14 +113,13 @@ async def main():
     application.add_handler(CommandHandler("start", start))
     application.add_handler(CallbackQueryHandler(handle_button))
 
-    await application.initialize()
-    await application.start()
     logger.info("Bot started")
-    await application.updater.start_polling()
-    await application.updater.idle()
+
+    # Упрощённый правильный запуск
+    await application.run_polling()
 
 
-if name == "main":
+if name == "main":   # ← было if name == "main":
     import asyncio
 
     asyncio.run(main())

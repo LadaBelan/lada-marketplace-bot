@@ -1,3 +1,4 @@
+
 import os
 import logging
 from telegram import (
@@ -18,7 +19,7 @@ logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
     level=logging.INFO,
 )
-logger = logging.getLogger(name)  # ← было logger = logging.getLogger(name)
+logger = logging.getLogger(name)
 
 
 def get_main_keyboard() -> InlineKeyboardMarkup:
@@ -115,11 +116,10 @@ async def main():
 
     logger.info("Bot started")
 
-    # Упрощённый правильный запуск
     await application.run_polling()
 
 
-if name == "main":   # ← было if name == "main":
+if name == "main":
     import asyncio
 
     asyncio.run(main())
